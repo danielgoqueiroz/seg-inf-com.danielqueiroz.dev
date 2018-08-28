@@ -1,7 +1,6 @@
 package autenticacao;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,6 +12,9 @@ public class Usuario {
 	
 	private String login;
 	private String senha;
+	private int autorizacao;
+	
+	private Scanner teclado;
 	
 	public Usuario(String login, String senha) {
 		super();
@@ -42,7 +44,7 @@ public class Usuario {
 
 	public void criarConta() {
 		
-		Scanner teclado = new Scanner(System.in);
+		teclado = new Scanner(System.in);
 		
 		System.out.println("Digite seu nome de login:");
 		this.setLogin(teclado.next());
@@ -131,6 +133,14 @@ public class Usuario {
 		}
 		return false;
 		
+	}
+
+	public int getAutorizacao() {
+		return autorizacao;
+	}
+
+	public void setAutorizacao(int autorizacao) {
+		this.autorizacao = autorizacao;
 	}
 	
 
